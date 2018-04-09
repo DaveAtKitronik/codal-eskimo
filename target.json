@@ -1,6 +1,6 @@
 {
-    "device":"CIRCUIT_PLAYGROUND",
-    "processor":"SAMD21G18A",
+    "device":"ESKIMO",
+    "processor":"SAMD21E18A",
     "architecture":"CORTEX_M0_PLUS",
     "toolchain":"ARM_GCC",
     "post_process":"python ./utils/uf2conv.py -o <OUTPUT_HEX_DESTINATION>/<OUTPUT_HEX_NAME>.uf2 -c <OUTPUT_BIN_LOCATION>",

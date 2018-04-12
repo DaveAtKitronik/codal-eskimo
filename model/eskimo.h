@@ -32,7 +32,7 @@ DEALINGS IN THE SOFTWARE.
 #include "CodalHeapAllocator.h"
 #include "CodalDevice.h"
 #include "ErrorNo.h"
-//*#include "CPlayTimer.h"
+#include "eskimo_timer.h"
 #include "Matrix4.h"
 #include "CodalCompat.h"
 #include "CodalComponent.h"
@@ -60,7 +60,7 @@ DEALINGS IN THE SOFTWARE.
 namespace codal
 {
     /**
-      * Class definition for a CircuitPlayground device.
+      * Class definition for an Eskimo device.
       *
       * Represents the device as a whole, and includes member variables that represent various device drivers
       * used to control aspects of the device.
@@ -84,15 +84,15 @@ namespace codal
         public:
 
         MessageBus                  messageBus;
-        // probably need a Timer of some sort?                  timer;
-        mbed::Serial                serial;
+        EskimoTimer                 timer;
+        //mbed::Serial                serial;
         EskimoIO                    io;
         Button                      buttonA;
         Button                      buttonB;
         MultiButton                 buttonAB;
 
-        mbed::I2C                   i2c;
-        mbed::SPI                   flashSPI;
+        //mbed::I2C                   i2c;
+        //mbed::SPI                   flashSPI;
 
 
         /**

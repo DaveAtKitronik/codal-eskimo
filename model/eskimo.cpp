@@ -132,13 +132,13 @@ void cpu_clock_init(void) {
 Eskimo::Eskimo() :
     messageBus(),
     timer(),
-    serial(TXD, RXD),
+    //serial(TXD, RXD),
     io(),
     buttonA(io.buttonA, DEVICE_ID_BUTTON_A, DEVICE_BUTTON_ALL_EVENTS, ACTIVE_HIGH, PullMode::Down),
     buttonB(io.buttonB, DEVICE_ID_BUTTON_B, DEVICE_BUTTON_ALL_EVENTS, ACTIVE_HIGH, PullMode::Down),
-    buttonAB(DEVICE_ID_BUTTON_A, DEVICE_ID_BUTTON_B, DEVICE_ID_BUTTON_AB),
-    i2c(io.sda, io.scl),
-    flashSPI(io.flashMOSI, io.flashMISO, io.flashSCLK)
+    buttonAB(DEVICE_ID_BUTTON_A, DEVICE_ID_BUTTON_B, DEVICE_ID_BUTTON_AB)
+    //i2c(io.sda, io.scl),
+    //flashSPI(io.flashMOSI, io.flashMISO, io.flashSCLK)
 {
 
     eskimo_device_instance = this;
@@ -146,7 +146,7 @@ Eskimo::Eskimo() :
     status = 0;
     cpu_clock_init();
 
-    codal_dmesg_set_flush_fn(cplay_dmesg_flush);
+    codal_dmesg_set_flush_fn(eskimo_dmesg_flush);
 
     // Bring up fiber scheduler.
     scheduler_init(messageBus);
@@ -166,8 +166,8 @@ Eskimo::Eskimo() :
     // Seed our random number generator (not very random - this needs improving
     this->seedRandom(0xDEADBEEF);
 
-    flashSPI.setFrequency(4000000);
-    flashSPI.setMode(0);
+    //flashSPI.setFrequency(4000000);
+    //flashSPI.setMode(0);
 }
 
 /**
